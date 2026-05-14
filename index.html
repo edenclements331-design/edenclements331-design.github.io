@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Women’s Fashion</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Segoe UI", Arial, sans-serif;
+    }
+
+    body {
+      background: #fff6f8;
+      color: #25161a;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: auto;
+      padding: 0 22px;
+    }
+
+    header {
+      background: #fff;
+      box-shadow: 0 5px 25px rgba(0,0,0,0.06);
+      position: sticky;
+      top: 0;
+      z-index: 99;
+    }
+
+    .navbar {
+      height: 78px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      font-size: 28px;
+      font-weight: 900;
+      text-decoration: none;
+      color: #25161a;
+    }
+
+    .logo span {
+      color: #e45b89;
+    }
+
+    .menu {
+      display: flex;
+      list-style: none;
+      gap: 28px;
+    }
+
+    .menu a {
+      color: #4b3038;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 15px;
+    }
+
+    .header-icons {
+      display: flex;
+      gap: 12px;
+    }
+
+    .header-icons button {
+      width: 40px;
+      height: 40px;
+      border: 1px solid #f0dbe1;
+      background: #fff6f8;
+      border-radius: 50%;
+      cursor: pointer;
+    }
+
+    .hero {
+      margin: 45px 0;
+      padding: 70px;
+      border-radius: 36px;
+      background: linear-gradient(120deg, #ffe1ea, #ffffff);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 45px;
+      align-items: center;
+    }
+
+    .hero span {
+      color: #e45b89;
+      font-weight: 800;
+      letter-spacing: 2px;
+      font-size: 13px;
+    }
+
+    .hero h1 {
+      font-size: 64px;
+      line-height: 1.05;
+      margin: 18px 0;
+    }
+
+    .hero p {
+      color: #6c4a53;
+      font-size: 18px;
+      line-height: 1.7;
+      margin-bottom: 32px;
+    }
+
+    .btn {
+      display: inline-block;
+      background: #25161a;
+      color: #fff;
+      padding: 15px 30px;
+      border-radius: 40px;
+      text-decoration: none;
+      font-weight: 800;
+    }
+
+    .hero img {
+      width: 100%;
+      height: 520px;
+      object-fit: cover;
+      border-radius: 30px;
+      box-shadow: 0 20px 45px rgba(0,0,0,0.13);
+    }
+
+    .section-title {
+      text-align: center;
+      margin: 70px 0 40px;
+    }
+
+    .section-title span {
+      color: #e45b89;
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: 2px;
+    }
+
+    .section-title h2 {
+      font-size: 44px;
+      margin-top: 10px;
+    }
+
+    .category-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 25px;
+      margin-bottom: 75px;
+    }
+
+    .category-card {
+      height: 340px;
+      border-radius: 28px;
+      overflow: hidden;
+      position: relative;
+      box-shadow: 0 12px 35px rgba(0,0,0,0.08);
+    }
+
+    .category-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .category-card div {
+      position: absolute;
+      left: 20px;
+      right: 20px;
+      bottom: 20px;
+      background: rgba(255,255,255,0.92);
+      padding: 18px;
+      border-radius: 18px;
+    }
+
+    .category-card h3 {
+      font-size: 24px;
+      margin-bottom: 5px;
+    }
+
+    .category-card p {
+      color: #765b62;
+      font-size: 14px;
+    }
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 25px;
+      margin-bottom: 75px;
+    }
+
+    .product-card {
+      background: #fff;
+      border-radius: 26px;
+      overflow: hidden;
+      position: relative;
+      box-shadow: 0 12px 35px rgba(0,0,0,0.07);
+      transition: 0.3s;
+    }
+
+    .product-card:hover {
+      transform: translateY(-8px);
+    }
+
+    .badge {
+      position: absolute;
+      top: 15px;
+      left: 15px;
+      background: #25161a;
+      color: #fff;
+      padding: 7px 13px;
+      border-radius: 30px;
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    .product-card img {
+      width: 100%;
+      height: 310px;
+      object-fit: cover;
+    }
+
+    .product-info {
+      padding: 20px;
+    }
+
+    .product-info h3 {
+      font-size: 19px;
+      margin-bottom: 8px;
+    }
+
+    .product-info p {
+      color: #765b62;
+      font-size: 14px;
+      margin-bottom: 14px;
+    }
+
+    .price-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .price {
+      font-size: 22px;
+      font-weight: 900;
+      color: #25161a;
+    }
+
+    .cart-btn {
+      border: none;
+      background: #e45b89;
+      color: #fff;
+      padding: 10px 15px;
+      border-radius: 22px;
+      cursor: pointer;
+      font-weight: 800;
+    }
+
+    .offer {
+      background: #25161a;
+      color: #fff;
+      border-radius: 34px;
+      padding: 58px;
+      margin-bottom: 75px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 25px;
+    }
+
+    .offer h2 {
+      font-size: 42px;
+      margin-bottom: 10px;
+    }
+
+    .offer p {
+      color: #f2d7df;
+      font-size: 17px;
+      line-height: 1.6;
+    }
+
+    .offer .btn {
+      background: #fff;
+      color: #25161a;
+      white-space: nowrap;
+    }
+
+    footer {
+      background: #130b0e;
+      color: #fff;
+      padding: 55px 0 20px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1.5fr;
+      gap: 35px;
+    }
+
+    footer h3,
+    footer h4 {
+      margin-bottom: 18px;
+    }
+
+    footer p,
+    footer a {
+      color: #cdb6bd;
+      text-decoration: none;
+      line-height: 1.7;
+      font-size: 15px;
+    }
+
+    footer ul {
+      list-style: none;
+    }
+
+    footer li {
+      margin-bottom: 10px;
+    }
+
+    .newsletter {
+      display: flex;
+      margin-top: 14px;
+    }
+
+    .newsletter input {
+      flex: 1;
+      border: none;
+      padding: 13px;
+      border-radius: 8px 0 0 8px;
+      outline: none;
+    }
+
+    .newsletter button {
+      border: none;
+      background: #e45b89;
+      color: #fff;
+      padding: 13px 16px;
+      font-weight: 800;
+      border-radius: 0 8px 8px 0;
+    }
+
+    .footer-bottom {
+      border-top: 1px solid #342027;
+      margin-top: 35px;
+      padding-top: 20px;
+      text-align: center;
+      color: #bba4ab;
+      font-size: 14px;
+    }
+
+    @media (max-width: 900px) {
+      .menu {
+        display: none;
+      }
+
+      .hero {
+        grid-template-columns: 1fr;
+        padding: 35px;
+      }
+
+      .hero h1 {
+        font-size: 42px;
+      }
+
+      .category-grid,
+      .product-grid,
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .offer {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="container navbar">
+    <a href="#" class="logo">Viva<span>Moda</span></a>
+
+    <ul class="menu">
+      <li><a href="#">Home</a></li>
+      <li><a href="#">Dresses</a></li>
+      <li><a href="#">Tops</a></li>
+      <li><a href="#">New Arrivals</a></li>
+      <li><a href="#">Sale</a></li>
+    </ul>
+
+    <div class="header-icons">
+      <button>🔍</button>
+      <button>♡</button>
+      <button>🛒</button>
+    </div>
+  </div>
+</header>
+
+<main class="container">
+
+  <section class="hero">
+    <div>
+      <span>WOMEN'S FASHION COLLECTION</span>
+      <h1>Style that speaks before you do.</h1>
+      <p>
+        Discover elegant dresses, chic tops, premium jackets, and everyday outfits
+        designed for confidence, comfort, and modern beauty.
+      </p>
+      <a href="#" class="btn">Shop Collection</a>
+    </div>
+
+    <img src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=900&q=80" alt="Women Fashion">
+  </section>
+
+  <section>
+    <div class="section-title">
+      <span>SHOP BY STYLE</span>
+      <h2>Fashion Categories</h2>
+    </div>
+
+    <div class="category-grid">
+      <div class="category-card">
+        <img src="https://images.unsplash.com/photo-1496747611176-843222e1e57c?auto=format&fit=crop&w=900&q=80">
+        <div>
+          <h3>Elegant Dresses</h3>
+          <p>Party, casual and premium looks</p>
+        </div>
+      </div>
+
+      <div class="category-card">
+        <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=900&q=80">
+        <div>
+          <h3>Winter Wear</h3>
+          <p>Coats, jackets and warm layers</p>
+        </div>
+      </div>
+
+      <div class="category-card">
+        <img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=900&q=80">
+        <div>
+          <h3>Casual Outfits</h3>
+          <p>Comfortable daily fashion</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-title">
+      <span>TRENDING NOW</span>
+      <h2>Featured Products</h2>
+    </div>
+
+    <div class="product-grid">
+
+      <div class="product-card">
+        <span class="badge">NEW</span>
+        <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=900&q=80">
+        <div class="product-info">
+          <h3>Modern Streetwear Set</h3>
+          <p>Soft premium fabric</p>
+          <div class="price-row">
+            <span class="price">$59.99</span>
+            <button class="cart-btn">Add</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <span class="badge">SALE</span>
+        <img src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=900&q=80">
+        <div class="product-info">
+          <h3>Premium Fashion Jacket</h3>
+          <p>Perfect evening wear</p>
+          <div class="price-row">
+            <span class="price">$79.99</span>
+            <button class="cart-btn">Add</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=900&q=80">
+        <div class="product-info">
+          <h3>Luxury Winter Outfit</h3>
+          <p>Elegant and comfortable</p>
+          <div class="price-row">
+            <span class="price">$74.99</span>
+            <button class="cart-btn">Add</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <span class="badge">HOT</span>
+        <img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=900&q=80">
+        <div class="product-info">
+          <h3>Classic Beige Coat</h3>
+          <p>Stylish daily wear</p>
+          <div class="price-row">
+            <span class="price">$89.00</span>
+            <button class="cart-btn">Add</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="offer">
+    <div>
+      <h2>New Season Sale — Up to 40% Off</h2>
+      <p>Refresh your wardrobe with stylish women’s fashion pieces at special prices.</p>
+    </div>
+
+    <a href="#" class="btn">Shop Sale</a>
+  </section>
+
+</main>
+
+<footer>
+  <div class="container footer-grid">
+
+    <div>
+      <h3>VivaModa</h3>
+      <p>
+        Premium women’s fashion brand offering elegant,
+        modern, and comfortable clothing for every occasion.
+      </p>
+    </div>
+
+    <div>
+      <h4>Shop</h4>
+      <ul>
+        <li><a href="#">Dresses</a></li>
+        <li><a href="#">Tops</a></li>
+        <li><a href="#">Jackets</a></li>
+        <li><a href="#">Accessories</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <h4>Support</h4>
+      <ul>
+        <li><a href="#">Contact Us</a></li>
+        <li><a href="#">Shipping</a></li>
+        <li><a href="#">Returns</a></li>
+        <li><a href="#">Track Order</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <h4>Newsletter</h4>
+      <p>Get latest arrivals and exclusive fashion offers.</p>
+
+      <form class="newsletter">
+        <input type="email" placeholder="Enter email">
+        <button>Join</button>
+      </form>
+    </div>
+
+  </div>
+
+  <div class="container footer-bottom">
+    © 2026 VivaModa. All rights reserved.
+  </div>
+</footer>
+
+</body>
+</html>
