@@ -1,0 +1,772 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CA Firm Website</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Segoe UI", Arial, sans-serif;
+    }
+
+    body {
+      background: #f5f7fb;
+      color: #14213d;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: auto;
+      padding: 0 22px;
+    }
+
+    header {
+      background: #fff;
+      box-shadow: 0 5px 25px rgba(0,0,0,0.06);
+      position: sticky;
+      top: 0;
+      z-index: 99;
+    }
+
+    .navbar {
+      height: 78px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      font-size: 28px;
+      font-weight: 900;
+      text-decoration: none;
+      color: #14213d;
+    }
+
+    .logo span {
+      color: #c99a2e;
+    }
+
+    .menu {
+      display: flex;
+      gap: 28px;
+      list-style: none;
+    }
+
+    .menu a {
+      text-decoration: none;
+      color: #344054;
+      font-size: 15px;
+      font-weight: 600;
+    }
+
+    .header-btn {
+      background: #c99a2e;
+      color: #fff;
+      padding: 13px 22px;
+      border-radius: 40px;
+      text-decoration: none;
+      font-weight: 800;
+    }
+
+    .hero {
+      margin: 45px 0;
+      padding: 78px;
+      border-radius: 36px;
+      background:
+        linear-gradient(rgba(20,33,61,0.78), rgba(20,33,61,0.78)),
+        url("https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1400&q=80");
+      background-size: cover;
+      background-position: center;
+      color: #fff;
+    }
+
+    .hero span {
+      color: #f3d98b;
+      font-size: 13px;
+      font-weight: 900;
+      letter-spacing: 2px;
+    }
+
+    .hero h1 {
+      font-size: 64px;
+      line-height: 1.05;
+      max-width: 800px;
+      margin: 20px 0;
+    }
+
+    .hero p {
+      max-width: 680px;
+      color: #eef2ff;
+      font-size: 19px;
+      line-height: 1.7;
+      margin-bottom: 32px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 15px 28px;
+      border-radius: 40px;
+      text-decoration: none;
+      font-weight: 800;
+    }
+
+    .btn-gold {
+      background: #c99a2e;
+      color: #fff;
+    }
+
+    .btn-white {
+      background: #fff;
+      color: #14213d;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 22px;
+      margin-bottom: 75px;
+    }
+
+    .stat-card {
+      background: #fff;
+      padding: 26px;
+      border-radius: 22px;
+      text-align: center;
+      box-shadow: 0 12px 35px rgba(0,0,0,0.06);
+    }
+
+    .stat-card h3 {
+      font-size: 34px;
+      color: #c99a2e;
+      margin-bottom: 6px;
+    }
+
+    .stat-card p {
+      color: #667085;
+      font-weight: 700;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 42px;
+    }
+
+    .section-title span {
+      color: #c99a2e;
+      font-size: 13px;
+      font-weight: 900;
+      letter-spacing: 2px;
+    }
+
+    .section-title h2 {
+      font-size: 44px;
+      margin-top: 10px;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+      margin-bottom: 80px;
+    }
+
+    .service-card {
+      background: #fff;
+      padding: 32px;
+      border-radius: 28px;
+      box-shadow: 0 12px 35px rgba(0,0,0,0.07);
+      transition: 0.3s;
+    }
+
+    .service-card:hover {
+      transform: translateY(-8px);
+    }
+
+    .icon {
+      width: 62px;
+      height: 62px;
+      background: #fff4d8;
+      color: #c99a2e;
+      border-radius: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 30px;
+      margin-bottom: 20px;
+    }
+
+    .service-card h3 {
+      font-size: 25px;
+      margin-bottom: 12px;
+    }
+
+    .service-card p {
+      color: #667085;
+      line-height: 1.7;
+      margin-bottom: 20px;
+    }
+
+    .service-card a {
+      color: #c99a2e;
+      text-decoration: none;
+      font-weight: 900;
+    }
+
+    .about {
+      background: #14213d;
+      color: #fff;
+      border-radius: 34px;
+      padding: 60px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 42px;
+      align-items: center;
+      margin-bottom: 80px;
+    }
+
+    .about img {
+      width: 100%;
+      height: 430px;
+      object-fit: cover;
+      border-radius: 28px;
+    }
+
+    .about h2 {
+      font-size: 46px;
+      margin-bottom: 18px;
+    }
+
+    .about p {
+      color: #d9e2f4;
+      line-height: 1.8;
+      font-size: 17px;
+      margin-bottom: 25px;
+    }
+
+    .check-list {
+      list-style: none;
+      margin-bottom: 28px;
+    }
+
+    .check-list li {
+      margin-bottom: 12px;
+      color: #f8fafc;
+      font-weight: 700;
+    }
+
+    .check-list li::before {
+      content: "✓";
+      color: #f3d98b;
+      margin-right: 10px;
+      font-weight: 900;
+    }
+
+    .plans-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+      margin-bottom: 80px;
+    }
+
+    .plan-card {
+      background: #fff;
+      border-radius: 28px;
+      padding: 32px;
+      box-shadow: 0 12px 35px rgba(0,0,0,0.07);
+    }
+
+    .plan-card.featured {
+      border: 2px solid #c99a2e;
+      transform: translateY(-10px);
+    }
+
+    .plan-card h3 {
+      font-size: 26px;
+      margin-bottom: 12px;
+    }
+
+    .plan-card p {
+      color: #667085;
+      line-height: 1.7;
+      margin-bottom: 20px;
+    }
+
+    .price {
+      font-size: 34px;
+      font-weight: 900;
+      color: #c99a2e;
+      margin-bottom: 22px;
+    }
+
+    .plan-card ul {
+      list-style: none;
+      margin-bottom: 26px;
+    }
+
+    .plan-card li {
+      margin-bottom: 12px;
+      color: #344054;
+      font-weight: 600;
+    }
+
+    .plan-card li::before {
+      content: "✓";
+      color: #c99a2e;
+      margin-right: 9px;
+      font-weight: 900;
+    }
+
+    .contact-section {
+      background: #fff;
+      border-radius: 34px;
+      padding: 45px;
+      margin-bottom: 80px;
+      box-shadow: 0 12px 35px rgba(0,0,0,0.07);
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 40px;
+      align-items: center;
+    }
+
+    .contact-section h2 {
+      font-size: 42px;
+      margin-bottom: 14px;
+    }
+
+    .contact-section p {
+      color: #667085;
+      line-height: 1.7;
+      font-size: 17px;
+    }
+
+    .contact-form {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 15px;
+    }
+
+    .contact-form input,
+    .contact-form select,
+    .contact-form textarea {
+      width: 100%;
+      padding: 15px;
+      border: 1px solid #e5e7eb;
+      border-radius: 14px;
+      outline: none;
+      font-size: 15px;
+      background: #fafafa;
+    }
+
+    .contact-form textarea {
+      grid-column: span 2;
+      min-height: 110px;
+      resize: vertical;
+    }
+
+    .contact-form button {
+      grid-column: span 2;
+      border: none;
+      background: #c99a2e;
+      color: #fff;
+      padding: 16px;
+      border-radius: 14px;
+      font-size: 16px;
+      font-weight: 900;
+      cursor: pointer;
+    }
+
+    .cta {
+      background: #c99a2e;
+      color: #fff;
+      border-radius: 30px;
+      padding: 55px;
+      margin-bottom: 80px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 28px;
+    }
+
+    .cta h2 {
+      font-size: 42px;
+      margin-bottom: 10px;
+    }
+
+    .cta p {
+      color: #fff8e8;
+      font-size: 18px;
+      line-height: 1.6;
+    }
+
+    footer {
+      background: #0f172a;
+      color: #fff;
+      padding: 55px 0 20px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1.5fr;
+      gap: 35px;
+    }
+
+    footer h3,
+    footer h4 {
+      margin-bottom: 18px;
+    }
+
+    footer p,
+    footer a {
+      color: #cbd5e1;
+      text-decoration: none;
+      line-height: 1.7;
+      font-size: 15px;
+    }
+
+    footer ul {
+      list-style: none;
+    }
+
+    footer li {
+      margin-bottom: 10px;
+    }
+
+    .footer-bottom {
+      border-top: 1px solid #334155;
+      margin-top: 35px;
+      padding-top: 20px;
+      text-align: center;
+      color: #94a3b8;
+      font-size: 14px;
+    }
+
+    @media (max-width: 900px) {
+      .menu {
+        display: none;
+      }
+
+      .hero {
+        padding: 42px;
+      }
+
+      .hero h1 {
+        font-size: 42px;
+      }
+
+      .stats,
+      .services-grid,
+      .about,
+      .plans-grid,
+      .contact-section,
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .plan-card.featured {
+        transform: none;
+      }
+
+      .contact-form {
+        grid-template-columns: 1fr;
+      }
+
+      .contact-form textarea,
+      .contact-form button {
+        grid-column: span 1;
+      }
+
+      .cta {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="container navbar">
+    <a href="#" class="logo">Prime<span>CA</span></a>
+
+    <ul class="menu">
+      <li><a href="#">Home</a></li>
+      <li><a href="#">Taxation</a></li>
+      <li><a href="#">Audit</a></li>
+      <li><a href="#">Compliance</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+
+    <a href="#" class="header-btn">Book Consultation</a>
+  </div>
+</header>
+
+<main class="container">
+
+  <section class="hero">
+    <span>CHARTERED ACCOUNTANT FIRM</span>
+
+    <h1>Trusted tax, audit, accounting and compliance services.</h1>
+
+    <p>
+      We help individuals, startups, and businesses manage taxation,
+      GST, audits, bookkeeping, company compliance, and financial advisory with confidence.
+    </p>
+
+    <div class="hero-buttons">
+      <a href="#" class="btn btn-gold">Get Consultation</a>
+      <a href="#" class="btn btn-white">View Services</a>
+    </div>
+  </section>
+
+  <section class="stats">
+    <div class="stat-card">
+      <h3>15+</h3>
+      <p>Years Experience</p>
+    </div>
+
+    <div class="stat-card">
+      <h3>1200+</h3>
+      <p>Clients Served</p>
+    </div>
+
+    <div class="stat-card">
+      <h3>98%</h3>
+      <p>Compliance Accuracy</p>
+    </div>
+
+    <div class="stat-card">
+      <h3>24/7</h3>
+      <p>Client Support</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-title">
+      <span>OUR SERVICES</span>
+      <h2>Professional CA Services</h2>
+    </div>
+
+    <div class="services-grid">
+
+      <div class="service-card">
+        <div class="icon">📊</div>
+        <h3>Income Tax Filing</h3>
+        <p>Accurate ITR filing, tax planning, refund assistance, and individual tax advisory.</p>
+        <a href="#">Learn More →</a>
+      </div>
+
+      <div class="service-card">
+        <div class="icon">🧾</div>
+        <h3>GST Registration & Filing</h3>
+        <p>GST registration, monthly returns, reconciliation, notices, and compliance support.</p>
+        <a href="#">Learn More →</a>
+      </div>
+
+      <div class="service-card">
+        <div class="icon">🏢</div>
+        <h3>Company Compliance</h3>
+        <p>ROC filing, company incorporation, annual compliance, LLP, startup and MCA services.</p>
+        <a href="#">Learn More →</a>
+      </div>
+
+      <div class="service-card">
+        <div class="icon">🔍</div>
+        <h3>Audit & Assurance</h3>
+        <p>Statutory audit, internal audit, tax audit, compliance audit, and financial review.</p>
+        <a href="#">Learn More →</a>
+      </div>
+
+      <div class="service-card">
+        <div class="icon">📚</div>
+        <h3>Bookkeeping</h3>
+        <p>Monthly accounting, ledger maintenance, MIS reports, payroll, and expense tracking.</p>
+        <a href="#">Learn More →</a>
+      </div>
+
+      <div class="service-card">
+        <div class="icon">💼</div>
+        <h3>Business Advisory</h3>
+        <p>Financial planning, budgeting, business setup, cash flow, valuation, and growth advisory.</p>
+        <a href="#">Learn More →</a>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="about">
+    <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=900&q=80" alt="CA Firm">
+
+    <div>
+      <h2>Reliable financial experts for your business growth.</h2>
+
+      <p>
+        Our CA firm provides transparent, timely, and practical financial solutions
+        for individuals, businesses, startups, and corporate clients.
+      </p>
+
+      <ul class="check-list">
+        <li>Experienced chartered accountants and tax consultants</li>
+        <li>Transparent pricing and professional documentation</li>
+        <li>Timely GST, tax, audit, and compliance filing</li>
+        <li>Personalized advisory for individuals and businesses</li>
+      </ul>
+
+      <a href="#" class="btn btn-gold">About Our Firm</a>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-title">
+      <span>CONSULTING PLANS</span>
+      <h2>Choose Your Service Plan</h2>
+    </div>
+
+    <div class="plans-grid">
+
+      <div class="plan-card">
+        <h3>Individual Tax</h3>
+        <p>Best for salaried professionals and freelancers.</p>
+        <div class="price">$49</div>
+
+        <ul>
+          <li>Income tax filing</li>
+          <li>Form 16 review</li>
+          <li>Tax saving guidance</li>
+          <li>Refund assistance</li>
+        </ul>
+
+        <a href="#" class="btn btn-gold">Choose Plan</a>
+      </div>
+
+      <div class="plan-card featured">
+        <h3>Business Compliance</h3>
+        <p>Perfect for startups, MSMEs, and small businesses.</p>
+        <div class="price">$149/mo</div>
+
+        <ul>
+          <li>GST filing support</li>
+          <li>Monthly bookkeeping</li>
+          <li>Compliance reminders</li>
+          <li>Basic business advisory</li>
+        </ul>
+
+        <a href="#" class="btn btn-gold">Choose Plan</a>
+      </div>
+
+      <div class="plan-card">
+        <h3>Audit & Advisory</h3>
+        <p>For companies needing audit and financial advisory.</p>
+        <div class="price">$499</div>
+
+        <ul>
+          <li>Audit planning</li>
+          <li>Financial statement review</li>
+          <li>Compliance audit</li>
+          <li>Management reporting</li>
+        </ul>
+
+        <a href="#" class="btn btn-gold">Choose Plan</a>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="contact-section">
+    <div>
+      <h2>Book a consultation with our CA experts.</h2>
+      <p>
+        Share your requirement and our team will contact you for taxation,
+        GST, audit, accounting, or compliance support.
+      </p>
+    </div>
+
+    <form class="contact-form">
+      <input type="text" placeholder="Full Name" required>
+      <input type="tel" placeholder="Phone Number" required>
+      <input type="email" placeholder="Email Address" required>
+
+      <select required>
+        <option value="">Select Service</option>
+        <option>Income Tax Filing</option>
+        <option>GST Filing</option>
+        <option>Company Compliance</option>
+        <option>Audit Service</option>
+        <option>Bookkeeping</option>
+        <option>Business Advisory</option>
+      </select>
+
+      <textarea placeholder="Tell us about your requirement"></textarea>
+
+      <button type="submit">Request Consultation</button>
+    </form>
+  </section>
+
+  <section class="cta">
+    <div>
+      <h2>Need tax or compliance support?</h2>
+      <p>Let our CA experts handle your filings, audits, accounts, and business compliance.</p>
+    </div>
+
+    <a href="#" class="btn btn-white">Contact Now</a>
+  </section>
+
+</main>
+
+<footer>
+  <div class="container footer-grid">
+
+    <div>
+      <h3>PrimeCA</h3>
+      <p>
+        Professional chartered accountant firm offering taxation,
+        GST, accounting, audit, compliance, and financial advisory services.
+      </p>
+    </div>
+
+    <div>
+      <h4>Services</h4>
+      <ul>
+        <li><a href="#">Income Tax</a></li>
+        <li><a href="#">GST Filing</a></li>
+        <li><a href="#">Audit</a></li>
+        <li><a href="#">Bookkeeping</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <h4>Company</h4>
+      <ul>
+        <li><a href="#">About Firm</a></li>
+        <li><a href="#">Our Team</a></li>
+        <li><a href="#">Pricing</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <h4>Contact</h4>
+      <p>📞 +1 (555) 420-8899</p>
+      <p>✉️ hello@primeca.com</p>
+      <p>📍 New York, USA</p>
+    </div>
+
+  </div>
+
+  <div class="container footer-bottom">
+    © 2026 PrimeCA Firm. All rights reserved.
+  </div>
+</footer>
+
+</body>
+</html>
